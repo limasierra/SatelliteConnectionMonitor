@@ -1,0 +1,206 @@
+{
+   ignore_libcrypto_conditional_jump_errors_in_leak
+   Memcheck:Leak
+   ...
+   obj:*/libcrypto.so.*
+}
+{
+   ignore_libcrypto_conditional_jump_errors_in_cond
+   Memcheck:Cond
+   ...
+   obj:*/libcrypto.so.*
+}
+{
+   ignore_libssl_conditional_jump_errors_in_cond
+   Memcheck:Cond
+   ...
+   obj:*/libssl.so.*
+}
+{
+   ignore_libcrypto_conditional_jump_errors_in_value8
+   Memcheck:Value8
+   ...
+   obj:*/libcrypto.so.*
+}
+{
+   ingore_scram_nonce_uninitialized_warning_cond
+   Memcheck:Cond
+   fun:mongoc_b64_ntop
+   ...
+   fun:_mongoc_scram_step
+   ...
+}
+{
+   ingore_scram_nonce_uninitialized_warning_value8
+   Memcheck:Value8
+   fun:mongoc_b64_ntop
+   ...
+   fun:_mongoc_scram_step
+   ...
+}
+{
+   ignore_libcrypto_conditional_jump_errors_in_param
+   Memcheck:Param
+   sendmsg(msg.msg_iov[0])
+   ...
+   obj:*/libcrypto.so.*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:__res_vinit
+   fun:__nss_hostname_digits_dots
+   fun:gethostbyname2_r@@GLIBC_2.2.5
+   fun:gaih_inet
+   fun:getaddrinfo
+   fun:mongoc_client_default_stream_initiator
+   fun:_mongoc_cluster_reconnect
+   fun:_mongoc_cluster_preselect
+   fun:_mongoc_write_command_execute
+   fun:mongoc_collection_insert
+   fun:db_insert
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:__res_vinit
+   fun:__nss_hostname_digits_dots
+   fun:gethostbyname2_r@@GLIBC_2.2.5
+   fun:gaih_inet
+   fun:getaddrinfo
+   fun:mongoc_client_default_stream_initiator
+   fun:_mongoc_cluster_reconnect
+   fun:_mongoc_cluster_preselect
+   fun:_mongoc_write_command_execute
+   fun:mongoc_collection_update
+   fun:db_update_watchdog
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:sasl_client_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_dl_load_cache_lookup
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_error
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   obj:/usr/lib/libdl-2.22.so
+   fun:_dl_catch_error
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_error
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   obj:/usr/lib/libdl-2.22.so
+   fun:_dl_catch_error
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:_sasl_get_plugin
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:sasl_client_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_error
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   obj:/usr/lib/libdl-2.22.so
+   fun:_dl_catch_error
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:init_snmp
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:netsnmp_read_module
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:netsnmp_tdomain_transport_full
+   fun:snmp_sess_open
+   fun:snmp_open
+   fun:open_session_helper
+   ...
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:set_enginetime
+   fun:init_snmpv3_post_config
+   fun:snmp_call_callbacks
+   ...
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/libnetsnmp.so.30.0.3
+   obj:/usr/lib/libnetsnmp.so.30.0.3
+   obj:/usr/lib/libnetsnmp.so.30.0.3
+   obj:/usr/lib/libnetsnmp.so.30.0.3
+   obj:/usr/lib/libnetsnmp.so.30.0.3
+   obj:/usr/lib/libnetsnmp.so.30.0.3
+   obj:/usr/lib/libnetsnmp.so.30.0.3
+   obj:/usr/lib/libnetsnmp.so.30.0.3
+   obj:/usr/lib/libnetsnmp.so.30.0.3
+   obj:/usr/lib/libnetsnmp.so.30.0.3
+   obj:/usr/lib/libnetsnmp.so.30.0.3
+}

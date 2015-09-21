@@ -1,0 +1,15 @@
+# Network segment configuration
+#
+# Syntax: 'RX, Segment Name, Frequency, EsNo Threshold'
+# - RX is either RX1 or RX2
+# - The NS name is displayed in the web interface later on
+# - The frequency is given in Hz
+# - If the EsNo falls below the given threshold, an alarm is raised
+
+RX1, Blade30, 1943600, 13
+RX1, NS12, 2012000, 13
+RX1, Dummy1, 2080400, 10.5
+RX1, Dummy2, 2148800, 10.6
+
+# Watch out at program start if the values
+# have been parsed correctly!

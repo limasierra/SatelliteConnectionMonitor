@@ -1,0 +1,4 @@
+.*.swp
+.*.swo
+scm_daemon/scm_daemon
+cscope.out
