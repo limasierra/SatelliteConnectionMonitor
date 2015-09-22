@@ -11,6 +11,8 @@ connected to a terminal, intended to monitor the satellite connection.
 As such, the information is retrieved from incoming traffic. The
 project has been realized during a summer job at SES S.A. .
 
+![Screenshot](screenshot.png)
+
 
 License
 -------
