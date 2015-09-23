@@ -140,7 +140,6 @@ size_t ns_take_next_old(struct rx_index *rx_idx)
 	// Send update command to device using SNMP
 	struct snmp_sessions *ss = rx_idx->snmp_sess;
 	size_t target_rx = next_rx;
-	size_t target_ns = next_ns_idx->current;
 	const char *freq = next_ns->freq;
 	snmp_set_freq(ss, target_rx, freq);
 

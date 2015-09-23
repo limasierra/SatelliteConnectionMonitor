@@ -132,14 +132,14 @@ static inline void print_array(struct mc_accu *accu)
 	while (bit_rate_comma > 1000)
 		bit_rate_comma /= 10;
 
-	printf("%12s: %2llu.%3.3llu Mbit/s\n", "Bit rate", bit_rate_hi, bit_rate_comma);
+	printf("%12s: %2"PRIu64".%3.3"PRIu64" Mbit/s\n", "Bit rate", bit_rate_hi, bit_rate_comma);
 
 	for (int i = 0; i < 29; i++) {
-		printf("%12s:  %10llu", modcod_names[i], curr[i]);
+		printf("%12s:  %10"PRIu64"", modcod_names[i], curr[i]);
 		if (diff[i] > 0)
-			printf("   (%3.1f\%, +%lld)", perc[i] / 10.0, diff[i]);
+			printf("   (%3.1f%%, +%"PRIu64")", perc[i] / 10.0, diff[i]);
 		else if (perc[i] > 0)
-			printf("   (%3.1f\%)", perc[i] / 10.0, diff[i]);
+			printf("   (%3.1f%%)", perc[i] / 10.0);
 		printf("\n");
 	}
 
@@ -178,6 +178,8 @@ void cb_recv_mc_packet(evutil_socket_t fd, short events, void *carry)
 
 	// Get UDP packet
 	numbytes = get_udp_packet(fd, buf, MC_BUFSIZ, &remote_addr);
+	if (numbytes < 1)
+		return;
 
 	// Fill message into struct
 	if (!parse_buf_into_struct(accu, buf)) {

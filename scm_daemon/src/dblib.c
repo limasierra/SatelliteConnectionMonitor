@@ -152,7 +152,6 @@ int db_get_esno_avg(mongoc_collection_t *dbc, char *rx_name, char *ns_name,
 	mongoc_cursor_t *cursor = NULL;
 	bson_iter_t iter;
 	const bson_t *res;
-	char *str;
 
 	ts_begin *= 1000;
 

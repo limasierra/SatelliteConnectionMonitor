@@ -10,8 +10,6 @@ int listen_to_udp(char *portnum)
 	int sockfd;
 	struct addrinfo hints, *servinfo, *p;
 	int rv;
-	int yes = 1;
-	char s[INET6_ADDRSTRLEN];
 
 	memset(&hints, 0, sizeof hints);
 	hints.ai_family = AF_UNSPEC;
@@ -64,7 +62,7 @@ int get_udp_packet(int sockfd, void *buf, int bufsiz,
 	int numbytes;
 
 	addr_len = sizeof(struct sockaddr_storage);
-	
+
 	if ((numbytes = recvfrom(sockfd, buf, bufsiz, 0,
 	    (struct sockaddr *)remote_addr, &addr_len)) == -1) {
 

@@ -92,7 +92,7 @@ int main(int argc, char **argv)
 	ev_mc = event_new(evbase, sockfd_mc, EV_READ|EV_PERSIST,
 	                  cb_recv_mc_packet, &c_mc);
 	if (HANDLE_MODCOD_MESSAGES)
-		event_add(ev_mc, NULL);
+		event_add(ev_mc, &ev_timeout_mc);
 
 	// Monitor EsNo degradation and trigger alarm
 	struct event *ev_mon;

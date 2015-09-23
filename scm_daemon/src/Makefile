@@ -1,5 +1,6 @@
 all:
 	gcc -g \
+	-Wall -Werror \
 	--std=gnu99 \
 	-lpthread \
 	-o ../scm_daemon \
