@@ -1,7 +1,7 @@
 #ifndef WATCHDOG_H
 #define WATCHDOG_H
 
-#include <common.h>
+#include "common.h"
 
 // The carry for the LibEvent callback
 struct ev_carry_watchdog {

@@ -192,15 +192,14 @@
    Memcheck:Leak
    match-leak-kinds: reachable
    fun:calloc
-   obj:/usr/lib/libnetsnmp.so.30.0.3
-   obj:/usr/lib/libnetsnmp.so.30.0.3
-   obj:/usr/lib/libnetsnmp.so.30.0.3
-   obj:/usr/lib/libnetsnmp.so.30.0.3
-   obj:/usr/lib/libnetsnmp.so.30.0.3
-   obj:/usr/lib/libnetsnmp.so.30.0.3
-   obj:/usr/lib/libnetsnmp.so.30.0.3
-   obj:/usr/lib/libnetsnmp.so.30.0.3
-   obj:/usr/lib/libnetsnmp.so.30.0.3
-   obj:/usr/lib/libnetsnmp.so.30.0.3
+   ...
    obj:/usr/lib/libnetsnmp.so.30.0.3
 }
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   obj:/usr/lib64/libnetsnmp.so.31.0.2
+}
+
