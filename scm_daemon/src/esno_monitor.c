@@ -97,7 +97,7 @@ static void execute_alarm_script(int flags, char *rx, char *ns)
 
 /**
  * Fetch average EsNo + packet count from database, check if everything
- * is in it's designated limits and raise an alarm if not.
+ * is in it's designated limits and finally call the alarm script
  */
 static void *worker_thread(void *carry)
 {
@@ -149,14 +149,14 @@ static void *worker_thread(void *carry)
 		flag_esno_threshold = 1 << 1;
 	}
 
-	// If tests failed: Raise an alarm
-	if (flag_validity_check || flag_esno_threshold) {
-		int flags;
+	// Call the script. The flags will indicate the observations
+	int flags;
 
+	flags = flag_validity_check + flag_esno_threshold;
+	execute_alarm_script(flags, rx_name, ns->name);
+
+	if (flags != 0) {
 		printf("Alarm raised for %s on %s!\n", ns->name, rx_name);
-
-		flags = flag_validity_check + flag_esno_threshold;
-		execute_alarm_script(flags, rx_name, ns->name);
 	}
 
 	// Finalize: Adapt monitor state etc

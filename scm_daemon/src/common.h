@@ -36,7 +36,7 @@
 #define SDD_TIME_SLICE 30  // switching interval in seconds
 #define TC1_IP_ADDR "192.168.1.50"  // TC1 IP address, for UDP message listening
 #define NS_CONFIG_FILE "config.txt" // Parsed to get network segments
-#define MON_ALARM_EXE "monitor_alarm.sh" // Script to execute for EsNo monitor alarm
+#define MON_ALARM_EXE "esno_monitor.sh" // Script to execute for EsNo monitor
 #define MON_OBSERVATION_TIME 86400  // Monitor time slice for last average in seconds
 #define HANDLE_SDD_MESSAGES 1  // Whether or not SDD (EsNo) messages should be captured
 #define HANDLE_MODCOD_MESSAGES 0  // Whether or not the MODCOD stats should be captured
