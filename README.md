@@ -62,9 +62,9 @@ Installation
   * Set the appropriate IP for the TC1 in `src/common.h`, in the line containing
     `#define TC1_IP_ADDR ...`
   * Configure the network segments + frequencies + alarm thresholds in `config.txt`.
-  * The script `monitor_alarm.sh` will be executed if an alarm is raised. Adapt
-    it to your needs and make sure it is executable (`chmod +x monitor_alarm.sh`).
-  * Run the daemon using `./run.sh` to run it in a Valgrind session.
+  * The script `esno_monitor.sh` will be executed if an alarm is raised. Adapt
+    it to your needs and make sure it is executable (`chmod +x esno_monitor.sh`).
+  * Run the daemon using `./run_scm_monitor.sh` to run it in a Valgrind session.
 - Copy the files in `web_interface` to a location where Apache can find them, so that
   they are available at `http://localhost`.
 
@@ -72,8 +72,8 @@ Installation
 Details
 -------
 
-- When an alarm is triggered, the `monitor_alarm.sh` script is triggered with the
-  following parameters: `./monitor_alarm.sh rx_name ns_name alert_type`. The alert
+- When an alarm is triggered, the `esno_monitor.sh` script is triggered with the
+  following parameters: `./esno_monitor.sh rx_name ns_name alert_type`. The alert
   type is a bitmask: `0x1` indicates a failed validity check, i.e. not enough
   packets have been received for this network segment to make a representative
   average. `0x2` indicates that the EsNo average has fallen below the threshold
